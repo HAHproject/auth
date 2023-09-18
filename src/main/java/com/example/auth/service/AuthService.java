@@ -2,6 +2,7 @@ package com.example.auth.service;
 
 import com.example.auth.client.api.CustomerClient;
 import com.example.auth.client.api.OwnerClient;
+import com.example.auth.client.request.CustomerRequest;
 import com.example.auth.client.request.OwnerRequest;
 import com.example.auth.config.JwtService;
 import com.example.auth.config.TokenInfo;
@@ -61,6 +62,9 @@ public class AuthService {
 
 
         if(role == Role.CUSTOMER){
+            customerClient.saveCustomer(new CustomerRequest(
+                    user.getId(), user.getEmail(), user.getUsername(), user.getRole()
+            ));
 
         }else if (role==Role.OWNER){
 
