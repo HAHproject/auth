@@ -18,12 +18,13 @@ public class JwtService {
     @Value("${jwt.secret}")
     private String secret;
 
-    public String makeToken(User user){
+    public String makeToken(User user,String status){
         Map<String, Object> claims = new HashMap<>();
         claims.put("id", user.getId().toString());
         claims.put("username", user.getUsername());
         claims.put("email", user.getEmail());
         claims.put("role", user.getRole().name());
+        claims.put("status",status);
 
         String token = Jwts.builder()
                 .setClaims(claims)

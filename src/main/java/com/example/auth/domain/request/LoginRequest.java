@@ -1,8 +1,8 @@
-package com.example.auth.client.request;
+package com.example.auth.domain.request;
+
 
 import com.example.auth.domain.entity.Role;
 import com.example.auth.domain.entity.User;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +10,12 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OwnerRequest {
+public class LoginRequest {
 
-    private UUID id;
     private String email;
-    private String username;
+    private String password;
+
+
 }
